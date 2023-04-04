@@ -73,3 +73,4 @@ if __name__ == "__main__":
         cpf = generate()
         cpf_formatado = formater(cpf)
         print(cpf_formatado)
+
