@@ -17,8 +17,8 @@ def validador_cpf(stringvar: tk.StringVar, button: tk.Button):
         )
 
 
-def generator_cpf(stringvar: tk.StringVar, button: tk.Button):
-    cpf = main.generator()
+def generate(stringvar: tk.StringVar, button: tk.Button):
+    cpf = main.generate()
     cpf_formatado = main.formater(cpf)
     stringvar.set(cpf_formatado)
 
@@ -52,22 +52,23 @@ validador_button.configure(command=lambda: validador_cpf(
 validador_label = tk.Label(root, text='Gerar:', bg='#fff',)
 validador_label.grid(row=2, column=0)
 
-gerador_stringvar = tk.StringVar()
-gerador_entry = tk.Entry(
+generate_stringvar = tk.StringVar()
+generate_entry = tk.Entry(
     root,
     bd=5,
     relief='flat',
-    textvariable=gerador_stringvar
+    textvariable=generate_stringvar
 )
-gerador_entry.grid(row=2, column=1, pady=10)
+generate_entry.grid(row=2, column=1, pady=10)
 
-gerador_button = tk.Button(root, text='Gerar')
-gerador_button.grid(row=2, column=2, sticky='we')
-gerador_button.configure(command=lambda: main.gerador(
-    gerador_stringvar, validador_button
+generate_button = tk.Button(root, text='Gerar')
+generate_button.grid(row=2, column=2, sticky='we')
+generate_button.configure(command=lambda: generate(
+    generate_stringvar, generate_button
 ))
 
 
 root.title('Gerador/Validador de CPF')
 root.config(background='#fff', padx=20, pady=20)
 root.mainloop()
+
